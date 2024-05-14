@@ -1,0 +1,21 @@
+<form [formGroup]="schoolForm" (ngSubmit)="onSubmit()">
+  <label for="country">Country:</label>
+  <select formControlName="country" (change)="onCountryChange()">
+    <option value="">Select Country</option>
+    <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+  </select>
+
+  <label for="city">City:</label>
+  <select formControlName="city" (change)="onCityChange()">
+    <option value="">Select City</option>
+    <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+  </select>
+
+  <label for="school">School:</label>
+  <select formControlName="school">
+    <option value="">Select School</option>
+    <option *ngFor="let school of schools" [value]="school.id">{{ school.name }}</option>
+  </select>
+
+  <button type="submit" [disabled]="!schoolForm.valid">Submit</button>
+</form>
